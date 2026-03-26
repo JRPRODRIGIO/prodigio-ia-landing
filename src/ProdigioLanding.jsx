@@ -571,7 +571,7 @@ function FinalCTA() {
       if (res.ok) {
         setEnviado(true);
       } else {
-        setError("Hubo un problema al enviar. Intenta de nuevo o escríbenos a hola@prodigioia.com");
+        setError("Hubo un problema al enviar. Intenta de nuevo o escríbenos a jrgutierrez@prodigioia.com");
       }
     } catch {
       setError("No se pudo conectar. Verifica tu conexión e intenta de nuevo.");
@@ -668,7 +668,7 @@ function FinalCTA() {
             <div style={{ textAlign: "center", padding: "60px 24px" }}>
               <CheckCircle2 size={56} color="var(--blue-light)" style={{ marginBottom: 20 }} />
               <h3 className="font-heading" style={{ fontSize: 28, fontWeight: 700, color: "white", marginBottom: 12 }}>¡Gracias por tu interés!</h3>
-              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", maxWidth: 480, margin: "0 auto" }}>Se abrió tu cliente de correo con la información. Si no se abrió, escríbenos directamente a <strong style={{ color: "white" }}>hola@prodigioia.com</strong></p>
+              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", maxWidth: 480, margin: "0 auto" }}>Se abrió tu cliente de correo con la información. Si no se abrió, escríbenos directamente a <strong style={{ color: "white" }}>jrgutierrez@prodigioia.com</strong></p>
             </div>
           )}
         </FadeIn>
@@ -690,7 +690,7 @@ function Footer() {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <Mail size={14} color="var(--gray-400)" />
-            <span style={{ fontSize: 13, color: "var(--gray-400)" }}>hola@prodigioia.com</span>
+            <span style={{ fontSize: 13, color: "var(--gray-400)" }}>jrgutierrez@prodigioia.com</span>
           </div>
         </div>
         <p style={{ fontSize: 13, color: "var(--gray-500)", width: "100%", textAlign: "center", marginTop: 16 }}>© {new Date().getFullYear()} Prodigio IA. Todos los derechos reservados.</p>
