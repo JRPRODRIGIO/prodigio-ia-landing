@@ -3,7 +3,7 @@ import {
   Clock, Target, Users, Zap, ArrowRight, CheckCircle2, BarChart3, Brain,
   Briefcase, MessageSquare, TrendingUp, Shield, ChevronRight, Mail, Phone,
   MapPin, Lightbulb, Layers, UserCheck, CalendarCheck, Search, Wrench,
-  Rocket, X, Menu,
+  Rocket, X, Menu, Star, ChevronLeft,
 } from "lucide-react";
 
 const LOGO_MAIN = "/logo.png";
@@ -385,20 +385,35 @@ function Services() {
           <FadeIn delay={0.12}>
             <div style={{ background: "white", borderRadius: 20, overflow: "hidden", border: "1px solid var(--gray-200)", height: "100%", display: "flex", flexDirection: "column" }}>
               <div style={{ background: "var(--navy)", padding: "16px 32px", display: "flex", alignItems: "center", gap: 8 }}>
-                <Search size={18} color="white" />
-                <span className="font-heading" style={{ color: "white", fontWeight: 700, fontSize: 13, letterSpacing: "0.06em", textTransform: "uppercase" }}>Ideal para empezar</span>
+                <Clock size={18} color="white" />
+                <span className="font-heading" style={{ color: "white", fontWeight: 700, fontSize: 13, letterSpacing: "0.06em", textTransform: "uppercase" }}>Solo 1–2 horas · Sin compromiso</span>
               </div>
               <div style={{ padding: "36px 36px 40px", flex: 1, display: "flex", flexDirection: "column" }}>
-                <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", marginBottom: 8, letterSpacing: "-0.02em" }}>Consultoría Express en IA</h3>
-                <p style={{ fontSize: 15, color: "var(--gray-600)", lineHeight: 1.6, marginBottom: 24 }}>Un diagnóstico rápido para identificar exactamente dónde la IA puede generar impacto en tu empresa, con recomendaciones accionables.</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                  <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", letterSpacing: "-0.02em" }}>Consultoría Express en IA</h3>
+                  <span style={{ background: "var(--blue-pale)", color: "var(--blue)", fontSize: 12, fontWeight: 700, padding: "4px 10px", borderRadius: 100, fontFamily: "'Sora', sans-serif", whiteSpace: "nowrap" }}>Desde $0</span>
+                </div>
+                <p style={{ fontSize: 15, color: "var(--gray-600)", lineHeight: 1.6, marginBottom: 20 }}>¿No sabes si la IA es para tu empresa o por dónde empezar? En una sesión de 1–2 horas te entregamos un plan concreto y accionable. Sin teoría, sin compromiso.</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
+                  {[
+                    { icon: <Clock size={13} />, text: "1–2 horas" },
+                    { icon: <CheckCircle2 size={13} />, text: "Plan en mano el mismo día" },
+                    { icon: <Shield size={13} />, text: "Sin compromiso" },
+                  ].map((tag, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 5, background: "var(--gray-50)", border: "1px solid var(--gray-200)", borderRadius: 100, padding: "5px 12px" }}>
+                      <span style={{ color: "var(--blue)" }}>{tag.icon}</span>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: "var(--gray-700)", fontFamily: "'Sora', sans-serif" }}>{tag.text}</span>
+                    </div>
+                  ))}
+                </div>
                 <div style={{ marginBottom: 20 }}>
                   <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>Para quién es</div>
-                  <p style={{ fontSize: 14, color: "var(--gray-600)", lineHeight: 1.6 }}>Dueños de negocio, directores y gerentes que quieren saber por dónde empezar con IA antes de invertir en capacitación.</p>
+                  <p style={{ fontSize: 14, color: "var(--gray-600)", lineHeight: 1.6 }}>Directivos y dueños de negocio que aún no están seguros de si la IA aplica a su operación — o que quieren un punto de partida claro antes de comprometerse con una capacitación.</p>
                 </div>
                 <div style={{ marginBottom: 20, flex: 1 }}>
-                  <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>Qué incluye</div>
+                  <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>Qué sale de la sesión</div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                    {["Diagnóstico de procesos y flujos actuales","Identificación de oportunidades con IA","Mapa de prioridades por impacto y facilidad","Recomendaciones accionables y concretas","Opción de diseñar soluciones a la medida"].map((item, i) => (
+                    {["Mapa de tus procesos con mayor potencial de automatización","Herramientas de IA recomendadas para tu tipo de negocio","Prioridades ordenadas por impacto y facilidad de implementación","Recomendaciones concretas listas para ejecutar"].map((item, i) => (
                       <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                         <CheckCircle2 size={16} color="var(--blue)" style={{ flexShrink: 0, marginTop: 3 }} />
                         <span style={{ fontSize: 14, color: "var(--gray-600)" }}>{item}</span>
@@ -406,11 +421,11 @@ function Services() {
                     ))}
                   </div>
                 </div>
-                <div style={{ background: "var(--gray-50)", borderRadius: 12, padding: 20, marginBottom: 24 }}>
-                  <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>Resultado</div>
-                  <p style={{ fontSize: 15, color: "var(--navy)", fontWeight: 500 }}>Sales con un plan claro de qué automatizar, qué herramientas usar y por dónde empezar. Sin adivinar.</p>
+                <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: 12, padding: 20, marginBottom: 24 }}>
+                  <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--blue)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>Al terminar la sesión</div>
+                  <p style={{ fontSize: 15, color: "var(--navy)", fontWeight: 600, lineHeight: 1.5 }}>Sales con un plan accionable en la mano — no con promesas. Decides si quieres avanzar con una capacitación o no. Sin presión.</p>
                 </div>
-                <a href="#contacto" className="btn-secondary" style={{ justifyContent: "center", width: "100%" }}>Agendar diagnóstico <ArrowRight size={16} /></a>
+                <a href="#contacto" className="btn-primary" style={{ justifyContent: "center", width: "100%" }}>Agendar mi diagnóstico gratuito <ArrowRight size={16} /></a>
               </div>
             </div>
           </FadeIn>
@@ -539,6 +554,244 @@ function Differentiators() {
                 <span className="font-heading" style={{ fontSize: 13, fontWeight: 700, color: "var(--navy)" }}>{r.feature}</span>
                 <span style={{ fontSize: 14, color: "var(--blue)", fontWeight: 600, textAlign: "center" }}>{r.us}</span>
                 <span style={{ fontSize: 14, color: "var(--gray-400)", textAlign: "center" }}>{r.them}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─── TESTIMONIALS ─── */
+const TESTIMONIALS = [
+  {
+    name: "Andrea Catalina Cantú Barbosa",
+    role: "Abogada",
+    company: "DECSA",
+    quote: "Lo que antes me tomaba horas de lectura y síntesis ahora lo resuelvo en minutos. La capacitación fue directa al grano, sin teoría innecesaria.",
+    stars: 10,
+    score: 10,
+    metric: "-85% de tiempo en síntesis",
+    color: "#EF4444",
+    bg: "#FEF2F2",
+  },
+  {
+    name: "Eduardo Alejandro González Nieves",
+    role: "Arquitecto",
+    company: "DECSA",
+    quote: "Mis presentaciones ahora tienen otro nivel y las preparo en una fracción del tiempo. Nunca pensé que la IA podía aplicarse tan bien a mi trabajo.",
+    stars: 9,
+    score: 9,
+    metric: "-66% en tiempo de presentaciones",
+    color: "#06B6D4",
+    bg: "#ECFEFF",
+  },
+  {
+    name: "Claudio Picazo Landeros",
+    role: "Supervisor",
+    company: "DECSA",
+    quote: "Llegué escéptico y salí usando IA ese mismo día. El enfoque práctico hace toda la diferencia — aprendes haciendo, no escuchando.",
+    stars: 10,
+    score: 10,
+    metric: "Adoptó IA en 24 horas",
+    color: "#8B5CF6",
+    bg: "#F5F3FF",
+  },
+  {
+    name: "Bernardo Molina",
+    role: "Administrador",
+    company: "Grupo Imagen",
+    quote: "Mis análisis ahora van mucho más a fondo en el mismo tiempo. Prodigio IA no solo enseña herramientas — cambia la forma en que piensas tu trabajo.",
+    stars: 9,
+    score: 9,
+    metric: "+25% en profundidad de análisis",
+    color: "#F59E0B",
+    bg: "#FFFBEB",
+  },
+];
+
+function Stars({ count }) {
+  return (
+    <div style={{ display: "flex", gap: 3 }}>
+      {Array.from({ length: count }).map((_, i) => (
+        <Star key={i} size={15} fill="#F59E0B" color="#F59E0B" />
+      ))}
+    </div>
+  );
+}
+
+function Testimonials() {
+  const [active, setActive] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const timerRef = useRef(null);
+
+  const goTo = (idx) => {
+    if (animating) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setActive(idx);
+      setAnimating(false);
+    }, 250);
+  };
+
+  const prev = () => goTo((active - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  const next = () => goTo((active + 1) % TESTIMONIALS.length);
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setAnimating(true);
+      setTimeout(() => {
+        setActive((a) => (a + 1) % TESTIMONIALS.length);
+        setAnimating(false);
+      }, 250);
+    }, 7000);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  const t = TESTIMONIALS[active];
+  const initials = t.name.split(" ").slice(0, 2).map((w) => w[0]).join("");
+
+  return (
+    <section style={{ background: "var(--gray-50)", padding: "96px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FadeIn>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div className="section-label" style={{ marginBottom: 12 }}>Testimonios</div>
+            <h2 className="section-title" style={{ maxWidth: 600, margin: "0 auto 16px" }}>
+              Lo que dicen quienes ya trabajan con IA.
+            </h2>
+            <p className="section-sub" style={{ margin: "0 auto" }}>
+              Resultados reales de equipos reales.
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Card */}
+        <div style={{ maxWidth: 760, margin: "0 auto 40px" }}>
+          <div
+            style={{
+              background: "white",
+              borderRadius: 20,
+              border: "1px solid var(--gray-200)",
+              overflow: "hidden",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
+              opacity: animating ? 0 : 1,
+              transform: animating ? "translateY(10px)" : "translateY(0)",
+              transition: "opacity 0.25s ease, transform 0.25s ease",
+            }}
+          >
+            {/* Color bar */}
+            <div style={{ height: 5, background: t.color }} />
+
+            <div style={{ padding: "36px 40px 40px" }}>
+              {/* Top row: avatar + name + stars */}
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 28 }}>
+                <div style={{
+                  width: 52, height: 52, borderRadius: 14, flexShrink: 0,
+                  background: t.bg, border: `2px solid ${t.color}`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  <span style={{ fontSize: 16, fontWeight: 800, color: t.color, fontFamily: "'Sora', sans-serif" }}>
+                    {initials}
+                  </span>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div className="font-heading" style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 2 }}>
+                    {t.name}
+                  </div>
+                  <div style={{ fontSize: 13, color: "var(--gray-500)", marginBottom: 8 }}>
+                    {t.role} · <span style={{ fontWeight: 600, color: "var(--gray-700)" }}>{t.company}</span>
+                  </div>
+                  <Stars count={t.stars} />
+                </div>
+                <div style={{ textAlign: "right", flexShrink: 0 }}>
+                  <div className="font-heading" style={{ fontSize: 26, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>
+                    {t.score}<span style={{ fontSize: 14, color: "var(--gray-400)", fontWeight: 500 }}>/10</span>
+                  </div>
+                  <div style={{ fontSize: 11, color: "var(--gray-400)", fontFamily: "'Sora', sans-serif", fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", marginTop: 2 }}>
+                    Recomendación
+                  </div>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p style={{
+                fontSize: 18, color: "var(--gray-700)", lineHeight: 1.7,
+                fontStyle: "italic", marginBottom: 24,
+                borderLeft: `3px solid ${t.color}`, paddingLeft: 20,
+              }}>
+                "{t.quote}"
+              </p>
+
+              {/* Metric */}
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                background: "var(--blue-pale)", border: "1px solid #BFDBFE",
+                borderRadius: 10, padding: "10px 18px",
+              }}>
+                <BarChart3 size={16} color="var(--blue)" />
+                <span className="font-heading" style={{ fontSize: 14, fontWeight: 700, color: "var(--blue)" }}>
+                  {t.metric}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Controls */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, marginTop: 24 }}>
+            <button
+              onClick={prev}
+              style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--gray-200)", background: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--blue)"; e.currentTarget.style.color = "var(--blue)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--gray-200)"; e.currentTarget.style.color = "inherit"; }}
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <div style={{ display: "flex", gap: 8 }}>
+              {TESTIMONIALS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  style={{
+                    width: i === active ? 24 : 8, height: 8,
+                    borderRadius: 4, border: "none", cursor: "pointer",
+                    background: i === active ? "var(--blue)" : "var(--gray-200)",
+                    transition: "all 0.3s ease", padding: 0,
+                  }}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--gray-200)", background: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--blue)"; e.currentTarget.style.color = "var(--blue)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--gray-200)"; e.currentTarget.style.color = "inherit"; }}
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Stats bar */}
+        <FadeIn delay={0.1}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
+            background: "var(--navy)", borderRadius: 16, padding: "28px 40px",
+            maxWidth: 760, margin: "0 auto", gap: 24,
+          }}>
+            {[
+              { number: "9.5/10", label: "Satisfacción promedio" },
+              { number: "100%", label: "Adoptó IA en 24 horas" },
+              { number: "6", label: "Empresas capacitadas" },
+            ].map((s, i) => (
+              <div key={i} style={{ textAlign: "center" }}>
+                <div className="font-heading" style={{ fontSize: 28, fontWeight: 800, color: "white", letterSpacing: "-0.02em" }}>
+                  {s.number}
+                </div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginTop: 4 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -769,6 +1022,7 @@ export default function ProdigioLanding() {
       <Process />
       <UseCases />
       <Differentiators />
+      <Testimonials />
       <FinalCTA />
       <Footer />
       <WhatsAppButton />
