@@ -357,7 +357,11 @@ function Services() {
                 <span className="font-heading" style={{ color: "white", fontWeight: 700, fontSize: 13, letterSpacing: "0.06em", textTransform: "uppercase" }}>Más popular</span>
               </div>
               <div style={{ padding: "36px 36px 40px", flex: 1, display: "flex", flexDirection: "column" }}>
-                <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", marginBottom: 8, letterSpacing: "-0.02em" }}>Bootcamp de Productividad Ejecutiva con IA</h3>
+                <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", marginBottom: 6, letterSpacing: "-0.02em" }}>Bootcamp de Productividad Ejecutiva con IA</h3>
+                <div style={{ marginBottom: 16 }}>
+                  <span className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--blue)" }}>Desde $15,000 MXN</span>
+                  <span style={{ fontSize: 13, color: "var(--gray-500)", marginLeft: 8 }}>presencial en tus oficinas</span>
+                </div>
                 <p style={{ fontSize: 15, color: "var(--gray-600)", lineHeight: 1.6, marginBottom: 24 }}>Sesión presencial intensiva donde tu equipo aprende a usar IA para resolver sus tareas reales. Cero teoría, pura aplicación.</p>
                 <div style={{ marginBottom: 20 }}>
                   <div className="font-heading" style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>Para quién es</div>
@@ -389,9 +393,10 @@ function Services() {
                 <span className="font-heading" style={{ color: "white", fontWeight: 700, fontSize: 13, letterSpacing: "0.06em", textTransform: "uppercase" }}>Solo 1–2 horas · Sin compromiso</span>
               </div>
               <div style={{ padding: "36px 36px 40px", flex: 1, display: "flex", flexDirection: "column" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-                  <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", letterSpacing: "-0.02em" }}>Consultoría Express en IA</h3>
-                  <span style={{ background: "var(--blue-pale)", color: "var(--blue)", fontSize: 12, fontWeight: 700, padding: "4px 10px", borderRadius: 100, fontFamily: "'Sora', sans-serif", whiteSpace: "nowrap" }}>Desde $0</span>
+                <h3 className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", marginBottom: 6, letterSpacing: "-0.02em" }}>Consultoría Express en IA</h3>
+                <div style={{ marginBottom: 16 }}>
+                  <span className="font-heading" style={{ fontSize: 22, fontWeight: 700, color: "var(--blue)" }}>$4,500 MXN</span>
+                  <span style={{ fontSize: 13, color: "var(--gray-500)", marginLeft: 8 }}>diagnóstico + reporte + plan accionable</span>
                 </div>
                 <p style={{ fontSize: 15, color: "var(--gray-600)", lineHeight: 1.6, marginBottom: 20 }}>¿No sabes si la IA es para tu empresa o por dónde empezar? En una sesión de 1–2 horas te entregamos un plan concreto y accionable. Sin teoría, sin compromiso.</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
