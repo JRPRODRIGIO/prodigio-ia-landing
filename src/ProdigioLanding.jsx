@@ -108,6 +108,11 @@ const globalStyles = (
       .services-grid { grid-template-columns: 1fr !important; min-width: 0 !important; }
       .stats-grid    { grid-template-columns: 1fr !important; gap: 16px !important; padding: 24px 20px !important; }
 
+      /* Hero 2-col → 1-col, hide visual panel */
+      .hero-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+      .hero-visual-col { display: none !important; }
+      .hero-btns a, .hero-btns button { width: 100% !important; justify-content: center !important; }
+
       /* Differentiators table */
       .diff-table { font-size: 12px !important; }
       .diff-table > div { grid-template-columns: 90px 1fr 1fr !important; }
@@ -115,48 +120,25 @@ const globalStyles = (
       /* Section padding */
       section { padding-left: 16px !important; padding-right: 16px !important; }
 
-      /* Hero */
-      .hero-inner { flex-direction: column !important; gap: 32px !important; }
-      .hero-text { max-width: 100% !important; text-align: center !important; }
-      .hero-text h1 { font-size: clamp(28px, 8vw, 44px) !important; }
-      .hero-text p  { font-size: 15px !important; }
-      .hero-btns    { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
-      .hero-btns a, .hero-btns button { width: 100% !important; justify-content: center !important; }
-      .hero-visual  { display: none !important; }
-
       /* Cards & inner containers */
       .card { padding: 20px !important; }
 
-      /* Testimonials card */
+      /* Testimonials */
       .testimonial-top { flex-direction: column !important; gap: 12px !important; }
-      .testimonial-score { text-align: left !important; }
+      .testimonial-card { padding: 24px 20px !important; }
 
-      /* Process auto-fit: force 1 column on very small screens */
+      /* Process */
       .process-grid { grid-template-columns: 1fr !important; }
 
-      /* Nav */
-      .nav-inner { padding: 12px 16px !important; }
-
-      /* Typography scale-down */
+      /* Typography */
       .section-title { font-size: clamp(22px, 6vw, 32px) !important; }
       .section-sub   { font-size: 15px !important; }
-
-      /* Buttons full-width on mobile */
-      .btn-full-mobile { width: 100% !important; justify-content: center !important; }
-
-      /* Footer */
-      .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-
-      /* Pricing badge inline → block */
-      .price-line { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; }
     }
 
     /* ── Small phones (≤ 480px) ── */
     @media (max-width: 480px) {
       .diff-table { display: none !important; }
-      .diff-mobile-fallback { display: block !important; }
       .stats-grid { grid-template-columns: 1fr !important; }
-      .testimonial-card { padding: 24px 20px !important; }
       .section-title { font-size: clamp(20px, 7vw, 28px) !important; }
     }
   `}</style>
@@ -216,45 +198,138 @@ function Nav() {
   );
 }
 
+/* ─── HERO VISUAL ─── */
+function HeroVisual() {
+  return (
+    <div style={{ position: "relative", width: "100%", minHeight: 460, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      {/* Background circle decoration */}
+      <div style={{
+        position: "absolute", top: "5%", right: "0%", width: 340, height: 340,
+        borderRadius: "50%", background: "var(--blue-pale)", opacity: 0.9, zIndex: 0,
+      }} />
+      <div style={{
+        position: "absolute", bottom: "5%", left: "5%", width: 160, height: 160,
+        borderRadius: "50%", background: "#DBEAFE", opacity: 0.6, zIndex: 0,
+      }} />
+
+      {/* Card 1 — Ahorro de tiempo */}
+      <div style={{
+        position: "absolute", top: "4%", left: "2%", width: 210, zIndex: 2,
+        background: "white", borderRadius: 16, padding: "18px 22px",
+        boxShadow: "0 16px 48px rgba(11,29,53,0.10)", border: "1px solid var(--gray-100)",
+      }}>
+        <div style={{ fontSize: 11, fontFamily: "'Sora',sans-serif", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "var(--gray-400)", marginBottom: 8 }}>Ahorro diario</div>
+        <div style={{ fontSize: 34, fontWeight: 800, color: "var(--blue)", fontFamily: "'Sora',sans-serif", lineHeight: 1, marginBottom: 4 }}>1–2 hrs</div>
+        <div style={{ fontSize: 12, color: "var(--gray-500)" }}>por persona en tu equipo</div>
+        <div style={{ marginTop: 12, height: 4, borderRadius: 4, background: "var(--blue-pale)", overflow: "hidden" }}>
+          <div style={{ height: "100%", width: "75%", borderRadius: 4, background: "var(--blue)" }} />
+        </div>
+      </div>
+
+      {/* Card 2 — Adopción */}
+      <div style={{
+        position: "absolute", top: "38%", right: "2%", width: 196, zIndex: 2,
+        background: "var(--navy)", borderRadius: 16, padding: "18px 22px",
+        boxShadow: "0 16px 48px rgba(11,29,53,0.22)",
+      }}>
+        <div style={{ fontSize: 11, fontFamily: "'Sora',sans-serif", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "rgba(255,255,255,0.45)", marginBottom: 8 }}>Adopción</div>
+        <div style={{ fontSize: 34, fontWeight: 800, color: "white", fontFamily: "'Sora',sans-serif", lineHeight: 1, marginBottom: 4 }}>100%</div>
+        <div style={{ fontSize: 12, color: "rgba(255,255,255,0.55)" }}>adoptó IA en 24 horas</div>
+        <div style={{ display: "flex", gap: 4, marginTop: 12 }}>
+          {[1,2,3,4,5,6].map(i => (
+            <div key={i} style={{ flex: 1, height: 4, borderRadius: 4, background: i <= 6 ? "#3B82F6" : "rgba(255,255,255,0.1)" }} />
+          ))}
+        </div>
+      </div>
+
+      {/* Card 3 — Satisfacción */}
+      <div style={{
+        position: "absolute", bottom: "6%", left: "8%", width: 200, zIndex: 2,
+        background: "white", borderRadius: 16, padding: "18px 22px",
+        boxShadow: "0 16px 48px rgba(11,29,53,0.09)", border: "1px solid var(--gray-100)",
+      }}>
+        <div style={{ display: "flex", gap: 3, marginBottom: 8 }}>
+          {[1,2,3,4,5].map(i => <Star key={i} size={13} fill="#F59E0B" color="#F59E0B" />)}
+        </div>
+        <div style={{ fontSize: 28, fontWeight: 800, color: "var(--navy)", fontFamily: "'Sora',sans-serif", lineHeight: 1, marginBottom: 4 }}>
+          9.5<span style={{ fontSize: 14, fontWeight: 500, color: "var(--gray-400)" }}>/10</span>
+        </div>
+        <div style={{ fontSize: 12, color: "var(--gray-500)" }}>satisfacción promedio</div>
+      </div>
+
+      {/* Center logo mark — decorative */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <svg viewBox="0 0 140 140" width="140" height="140" style={{ opacity: 0.08 }}>
+          <circle cx="54" cy="54" r="40" fill="none" stroke="#1D4ED8" strokeWidth="10" />
+          <circle cx="86" cy="86" r="40" fill="none" stroke="#1D4ED8" strokeWidth="10" />
+        </svg>
+      </div>
+
+      {/* Floating dot — accent */}
+      <div style={{
+        position: "absolute", top: "28%", left: "38%", width: 12, height: 12,
+        borderRadius: "50%", background: "var(--blue)", opacity: 0.35, zIndex: 1,
+      }} />
+      <div style={{
+        position: "absolute", top: "60%", right: "28%", width: 8, height: 8,
+        borderRadius: "50%", background: "var(--blue)", opacity: 0.25, zIndex: 1,
+      }} />
+    </div>
+  );
+}
+
 /* ─── HERO ─── */
 function Hero() {
   return (
     <section style={{ background: "var(--gray-50)", paddingTop: 110, paddingBottom: 80 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <FadeIn>
-          <div style={{ maxWidth: 740 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue-pale)", borderRadius: 100, padding: "8px 16px", marginBottom: 28 }}>
-              <Zap size={14} color="var(--blue)" />
-              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--blue)", fontFamily: "Sora, sans-serif" }}>Capacitación presencial y consultoría aplicada en IA</span>
+        {/* Two-column layout on desktop */}
+        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 480px", gap: 64, alignItems: "center", marginBottom: 64 }}>
+          {/* Left: text */}
+          <FadeIn>
+            <div>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue-pale)", borderRadius: 100, padding: "8px 16px", marginBottom: 28 }}>
+                <Zap size={14} color="var(--blue)" />
+                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--blue)", fontFamily: "Sora, sans-serif" }}>Capacitación presencial y consultoría aplicada en IA</span>
+              </div>
+              <h1 className="font-heading" style={{ fontSize: "clamp(36px, 4.5vw, 58px)", fontWeight: 800, color: "var(--navy)", lineHeight: 1.08, letterSpacing: "-0.03em", marginBottom: 24 }}>
+                Ahorra 1–2 horas al día<br />
+                <span style={{ color: "var(--blue)" }}>por persona.</span><br />
+                Con IA aplicada, no con teoría.
+              </h1>
+              <p style={{ fontSize: 18, color: "var(--gray-600)", lineHeight: 1.7, marginBottom: 36, maxWidth: 520 }}>
+                Capacitamos a tu equipo para que use inteligencia artificial en su trabajo real desde el primer día. Presencial, práctico y adaptado a tu empresa.
+              </p>
+              <div className="hero-btns" style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 40 }}>
+                <a href="#contacto" className="btn-primary" style={{ fontSize: 16, padding: "16px 36px" }}>Agenda un diagnóstico gratuito <ArrowRight size={18} /></a>
+                <a href="#servicios" className="btn-secondary" style={{ fontSize: 16, padding: "16px 36px" }}>Conoce nuestros servicios</a>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 28 }}>
+                {[
+                  { icon: <Users size={16} />, text: "Equipos de 5 a 100 personas" },
+                  { icon: <Target size={16} />, text: "100% aplicado a tu operación" },
+                  { icon: <Clock size={16} />, text: "Resultados desde la primera sesión" },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ color: "var(--blue)" }}>{item.icon}</div>
+                    <span style={{ fontSize: 13, color: "var(--gray-600)", fontWeight: 500 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h1 className="font-heading" style={{ fontSize: "clamp(36px, 5.5vw, 58px)", fontWeight: 800, color: "var(--navy)", lineHeight: 1.08, letterSpacing: "-0.03em", marginBottom: 24 }}>
-              Ahorra 1–2 horas al día<br />
-              <span style={{ color: "var(--blue)" }}>por persona.</span><br />
-              Con IA aplicada, no con teoría.
-            </h1>
-            <p style={{ fontSize: 19, color: "var(--gray-600)", lineHeight: 1.7, marginBottom: 36, maxWidth: 560 }}>
-              Capacitamos a tu equipo para que use inteligencia artificial en su trabajo real desde el primer día. Presencial, práctico y adaptado a tu empresa.
-            </p>
-            <div className="hero-btns" style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 48 }}>
-              <a href="#contacto" className="btn-primary" style={{ fontSize: 16, padding: "16px 36px" }}>Agenda un diagnóstico gratuito <ArrowRight size={18} /></a>
-              <a href="#servicios" className="btn-secondary" style={{ fontSize: 16, padding: "16px 36px" }}>Conoce nuestros servicios</a>
-            </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
-              {[
-                { icon: <Users size={18} />, text: "Equipos de 5 a 100 personas" },
-                { icon: <Target size={18} />, text: "100% aplicado a tu operación" },
-                { icon: <Clock size={18} />, text: "Resultados desde la primera sesión" },
-              ].map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <div style={{ color: "var(--blue)" }}>{item.icon}</div>
-                  <span style={{ fontSize: 14, color: "var(--gray-600)", fontWeight: 500 }}>{item.text}</span>
-                </div>
-              ))}
-            </div>
+          </FadeIn>
+
+          {/* Right: visual — hidden on mobile */}
+          <div className="hero-visual-col">
+            <FadeIn delay={0.15}>
+              <HeroVisual />
+            </FadeIn>
           </div>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <div style={{ marginTop: 64, background: "var(--navy)", borderRadius: 20, padding: "40px 48px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 32 }}>
+        </div>
+
+        {/* Stats bar — full width below */}
+        <FadeIn delay={0.25}>
+          <div style={{ background: "var(--navy)", borderRadius: 20, padding: "36px 48px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 32 }}>
             {[
               { number: "1–2 hrs", label: "de ahorro por persona al día" },
               { number: "100%", label: "presencial y práctico" },
@@ -263,7 +338,7 @@ function Hero() {
             ].map((s, i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <div className="font-heading" style={{ fontSize: 32, fontWeight: 800, color: "white", letterSpacing: "-0.02em" }}>{s.number}</div>
-                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>{s.label}</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>{s.label}</div>
               </div>
             ))}
           </div>
