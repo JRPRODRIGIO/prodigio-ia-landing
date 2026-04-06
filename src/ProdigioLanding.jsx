@@ -98,13 +98,66 @@ const globalStyles = (
       transition: color 0.2s; cursor: pointer;
     }
     .nav-link:hover { color: var(--navy); }
+    /* ── Tablet & Mobile (≤ 768px) ── */
     @media (max-width: 768px) {
       .hide-mobile { display: none !important; }
       .show-mobile { display: block !important; }
-      .mobile-stack { grid-template-columns: 1fr !important; }
+
+      /* Grids → single column */
+      .mobile-stack  { grid-template-columns: 1fr !important; }
       .services-grid { grid-template-columns: 1fr !important; min-width: 0 !important; }
+      .stats-grid    { grid-template-columns: 1fr !important; gap: 16px !important; padding: 24px 20px !important; }
+
+      /* Differentiators table */
       .diff-table { font-size: 12px !important; }
-      .diff-table > div { grid-template-columns: 100px 1fr 1fr !important; }
+      .diff-table > div { grid-template-columns: 90px 1fr 1fr !important; }
+
+      /* Section padding */
+      section { padding-left: 16px !important; padding-right: 16px !important; }
+
+      /* Hero */
+      .hero-inner { flex-direction: column !important; gap: 32px !important; }
+      .hero-text { max-width: 100% !important; text-align: center !important; }
+      .hero-text h1 { font-size: clamp(28px, 8vw, 44px) !important; }
+      .hero-text p  { font-size: 15px !important; }
+      .hero-btns    { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
+      .hero-btns a, .hero-btns button { width: 100% !important; justify-content: center !important; }
+      .hero-visual  { display: none !important; }
+
+      /* Cards & inner containers */
+      .card { padding: 20px !important; }
+
+      /* Testimonials card */
+      .testimonial-top { flex-direction: column !important; gap: 12px !important; }
+      .testimonial-score { text-align: left !important; }
+
+      /* Process auto-fit: force 1 column on very small screens */
+      .process-grid { grid-template-columns: 1fr !important; }
+
+      /* Nav */
+      .nav-inner { padding: 12px 16px !important; }
+
+      /* Typography scale-down */
+      .section-title { font-size: clamp(22px, 6vw, 32px) !important; }
+      .section-sub   { font-size: 15px !important; }
+
+      /* Buttons full-width on mobile */
+      .btn-full-mobile { width: 100% !important; justify-content: center !important; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+      /* Pricing badge inline → block */
+      .price-line { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; }
+    }
+
+    /* ── Small phones (≤ 480px) ── */
+    @media (max-width: 480px) {
+      .diff-table { display: none !important; }
+      .diff-mobile-fallback { display: block !important; }
+      .stats-grid { grid-template-columns: 1fr !important; }
+      .testimonial-card { padding: 24px 20px !important; }
+      .section-title { font-size: clamp(20px, 7vw, 28px) !important; }
     }
   `}</style>
 );
@@ -182,7 +235,7 @@ function Hero() {
             <p style={{ fontSize: 19, color: "var(--gray-600)", lineHeight: 1.7, marginBottom: 36, maxWidth: 560 }}>
               Capacitamos a tu equipo para que use inteligencia artificial en su trabajo real desde el primer día. Presencial, práctico y adaptado a tu empresa.
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 48 }}>
+            <div className="hero-btns" style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 48 }}>
               <a href="#contacto" className="btn-primary" style={{ fontSize: 16, padding: "16px 36px" }}>Agenda un diagnóstico gratuito <ArrowRight size={18} /></a>
               <a href="#servicios" className="btn-secondary" style={{ fontSize: 16, padding: "16px 36px" }}>Conoce nuestros servicios</a>
             </div>
@@ -283,7 +336,7 @@ function Solution() {
                   <h3 className="font-heading" style={{ fontSize: 24, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>Nuestro compromiso</h3>
                   <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.85, marginBottom: 32 }}>Que cada persona de tu equipo salga de la sesión sabiendo exactamente cómo usar IA para ahorrar tiempo en su trabajo diario.</p>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
                   {[{ num: "90%", text: "práctica, 10% contexto" },{ num: "+5", text: "herramientas dominadas" },{ num: "1 día", text: "para ver resultados" },{ num: "100%", text: "personalizado" }].map((s, i) => (
                     <div key={i}>
                       <div className="font-heading" style={{ fontSize: 28, fontWeight: 800 }}>{s.num}</div>
@@ -319,7 +372,7 @@ function Benefits() {
             <h2 className="section-title" style={{ maxWidth: 600, margin: "0 auto" }}>Resultados que tu equipo nota desde la primera semana.</h2>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
+        <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
           {items.map((b, i) => (
             <FadeIn key={i} delay={i * 0.08}>
               <div className="card" style={{ display: "flex", gap: 20, height: "100%" }}>
@@ -689,9 +742,9 @@ function Testimonials() {
             {/* Color bar */}
             <div style={{ height: 5, background: t.color }} />
 
-            <div style={{ padding: "36px 40px 40px" }}>
+            <div className="testimonial-card" style={{ padding: "36px 40px 40px" }}>
               {/* Top row: avatar + name + stars */}
-              <div style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 28 }}>
+              <div className="testimonial-top" style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 28 }}>
                 <div style={{
                   width: 52, height: 52, borderRadius: 14, flexShrink: 0,
                   background: t.bg, border: `2px solid ${t.color}`,
@@ -782,7 +835,7 @@ function Testimonials() {
 
         {/* Stats bar */}
         <FadeIn delay={0.1}>
-          <div style={{
+          <div className="stats-grid" style={{
             display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
             background: "var(--navy)", borderRadius: 16, padding: "28px 40px",
             maxWidth: 760, margin: "0 auto", gap: 24,
