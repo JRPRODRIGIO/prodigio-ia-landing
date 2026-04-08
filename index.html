@@ -4,15 +4,97 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
     <title>Prodigio IA – Capacitación práctica en IA para equipos empresariales</title>
     <meta name="description" content="Capacitamos a tu equipo para usar inteligencia artificial en su trabajo real desde el primer día. Presencial, personalizado y 100% práctico. Monterrey, México." />
     <meta name="keywords" content="capacitación IA, inteligencia artificial empresas, productividad IA, Monterrey, México" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://prodigioia.space/" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Prodigio IA – IA aplicada para equipos" />
     <meta property="og:description" content="Ahorra 1–2 horas al día por persona. Capacitación presencial en IA, adaptada a tu empresa." />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:image" content="https://prodigioia.space/logo.png" />
+    <meta property="og:url" content="https://prodigioia.space/" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="robots" content="index, follow" />
+    <meta name="twitter:title" content="Prodigio IA – IA aplicada para equipos" />
+    <meta name="twitter:description" content="Ahorra 1–2 horas al día por persona. Capacitación presencial en IA, adaptada a tu empresa." />
+    <meta name="twitter:image" content="https://prodigioia.space/logo.png" />
+
+    <!-- Preconnect Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Schema JSON-LD: LocalBusiness + Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://prodigioia.space/#business",
+          "name": "Prodigio IA",
+          "description": "Capacitación presencial en inteligencia artificial y consultoría express en IA para equipos empresariales.",
+          "url": "https://prodigioia.space",
+          "logo": "https://prodigioia.space/logo.png",
+          "image": "https://prodigioia.space/logo.png",
+          "email": "jrgutierrez@prodigioia.com",
+          "telephone": "+52-81-1977-6346",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Monterrey",
+            "addressRegion": "Nuevo León",
+            "addressCountry": "MX"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "México"
+          },
+          "priceRange": "$$",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "9.5",
+            "bestRating": "10",
+            "ratingCount": "4"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://prodigioia.space/#bootcamp",
+          "name": "Bootcamp de Productividad Ejecutiva con IA",
+          "description": "Sesión presencial intensiva donde tu equipo aprende a usar IA para resolver sus tareas reales. 3–6 horas, en tus oficinas.",
+          "provider": { "@id": "https://prodigioia.space/#business" },
+          "offers": {
+            "@type": "Offer",
+            "price": "15000",
+            "priceCurrency": "MXN",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "15000",
+              "priceCurrency": "MXN"
+            }
+          },
+          "areaServed": { "@type": "Country", "name": "México" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://prodigioia.space/#consultoria",
+          "name": "Consultoría Express en IA",
+          "description": "Diagnóstico de 1–2 horas para identificar oportunidades de IA en tu empresa. Incluye reporte y plan accionable.",
+          "provider": { "@id": "https://prodigioia.space/#business" },
+          "offers": {
+            "@type": "Offer",
+            "price": "4500",
+            "priceCurrency": "MXN"
+          },
+          "areaServed": { "@type": "Country", "name": "México" }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
