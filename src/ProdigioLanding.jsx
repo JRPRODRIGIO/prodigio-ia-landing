@@ -98,6 +98,21 @@ const globalStyles = (
       transition: color 0.2s; cursor: pointer;
     }
     .nav-link:hover { color: var(--navy); }
+
+    /* ── Focus styles (keyboard navigation) ── */
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 0;
+      border-color: var(--blue) !important;
+      border-radius: 10px;
+    }
+    button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 50%; }
+    a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
     /* ── Tablet & Mobile (≤ 768px) ── */
     @media (max-width: 768px) {
       .hide-mobile { display: none !important; }
@@ -182,7 +197,7 @@ function Nav() {
           <a href="#diferenciadores" className="nav-link">¿Por qué nosotros?</a>
           <a href="#contacto" className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>Agenda una llamada <ArrowRight size={16} /></a>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "var(--navy)" }} className="show-mobile">
+        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={mobileOpen} style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "var(--navy)" }} className="show-mobile">
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -875,6 +890,7 @@ function Testimonials() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, marginTop: 24 }}>
             <button
               onClick={prev}
+              aria-label="Testimonio anterior"
               style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--gray-200)", background: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--blue)"; e.currentTarget.style.color = "var(--blue)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--gray-200)"; e.currentTarget.style.color = "inherit"; }}
@@ -886,6 +902,7 @@ function Testimonials() {
               {TESTIMONIALS.map((_, i) => (
                 <button
                   key={i}
+                  aria-label={`Ver testimonio ${i + 1} de ${TESTIMONIALS.length}`}
                   onClick={() => goTo(i)}
                   style={{
                     width: i === active ? 24 : 8, height: 8,
@@ -899,6 +916,7 @@ function Testimonials() {
 
             <button
               onClick={next}
+              aria-label="Testimonio siguiente"
               style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--gray-200)", background: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--blue)"; e.currentTarget.style.color = "var(--blue)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--gray-200)"; e.currentTarget.style.color = "inherit"; }}
@@ -999,24 +1017,24 @@ function FinalCTA() {
             <form onSubmit={handleSubmit} style={{ background: "rgba(255,255,255,0.06)", borderRadius: 20, padding: "40px 36px", maxWidth: 640, margin: "0 auto", border: "1px solid rgba(255,255,255,0.08)" }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="mobile-stack">
                 <div>
-                  <label style={labelStyle}>Nombre completo</label>
-                  <input name="nombre" value={form.nombre} onChange={handleChange} placeholder="Tu nombre" style={inputStyle} required />
+                  <label htmlFor="f-nombre" style={labelStyle}>Nombre completo</label>
+                  <input name="nombre" id="f-nombre" value={form.nombre} onChange={handleChange} placeholder="Tu nombre" style={inputStyle} required />
                 </div>
                 <div>
-                  <label style={labelStyle}>Empresa</label>
-                  <input name="empresa" value={form.empresa} onChange={handleChange} placeholder="Nombre de tu empresa" style={inputStyle} required />
+                  <label htmlFor="f-empresa" style={labelStyle}>Empresa</label>
+                  <input name="empresa" id="f-empresa" value={form.empresa} onChange={handleChange} placeholder="Nombre de tu empresa" style={inputStyle} required />
                 </div>
                 <div>
-                  <label style={labelStyle}>Correo electrónico</label>
-                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="correo@empresa.com" style={inputStyle} required />
+                  <label htmlFor="f-email" style={labelStyle}>Correo electrónico</label>
+                  <input name="email" id="f-email" type="email" value={form.email} onChange={handleChange} placeholder="correo@empresa.com" style={inputStyle} required />
                 </div>
                 <div>
-                  <label style={labelStyle}>Teléfono</label>
-                  <input name="telefono" type="tel" value={form.telefono} onChange={handleChange} placeholder="+52 81 1234 5678" style={inputStyle} />
+                  <label htmlFor="f-telefono" style={labelStyle}>Teléfono</label>
+                  <input name="telefono" id="f-telefono" type="tel" value={form.telefono} onChange={handleChange} placeholder="+52 81 1234 5678" style={inputStyle} />
                 </div>
                 <div style={{ gridColumn: "1 / -1" }}>
-                  <label style={labelStyle}>Servicio de interés</label>
-                  <select name="servicio" value={form.servicio} onChange={handleChange} style={{ ...inputStyle, cursor: "pointer", appearance: "auto" }}>
+                  <label htmlFor="f-servicio" style={labelStyle}>Servicio de interés</label>
+                  <select name="servicio" id="f-servicio" value={form.servicio} onChange={handleChange} style={{ ...inputStyle, cursor: "pointer", appearance: "auto" }}>
                     <option value="">Selecciona una opción</option>
                     <option value="Bootcamp de Productividad Ejecutiva con IA">Bootcamp de Productividad Ejecutiva con IA</option>
                     <option value="Consultoría Express en IA">Consultoría Express en IA</option>
@@ -1024,8 +1042,8 @@ function FinalCTA() {
                   </select>
                 </div>
                 <div style={{ gridColumn: "1 / -1" }}>
-                  <label style={labelStyle}>Mensaje (opcional)</label>
-                  <textarea name="mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntanos brevemente sobre tu empresa o qué necesitas..." rows={3} style={{ ...inputStyle, resize: "vertical" }} />
+                  <label htmlFor="f-mensaje" style={labelStyle}>Mensaje (opcional)</label>
+                  <textarea name="mensaje" id="f-mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntanos brevemente sobre tu empresa o qué necesitas..." rows={3} style={{ ...inputStyle, resize: "vertical" }} />
                 </div>
                 <div style={{ gridColumn: "1 / -1" }}>
                   <button
