@@ -974,9 +974,7 @@ function Contact() {
         <FadeIn>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
-              <div style={{ background: 'rgba(255,255,255,0.12)', padding: '6px 12px', display: 'inline-flex', alignItems: 'center' }}>
-                <img src={LOGO_MAIN} alt="Prodigio IA" style={{ height: 28, width: 'auto' }} />
-              </div>
+              <img src={LOGO_MAIN} alt="Prodigio IA" style={{ height: 36, width: 'auto', filter: 'brightness(0) invert(1)' }} />
             </div>
             <div className="eyebrow eyebrow-cream" style={{ justifyContent: 'center' }}>
               <span className="dot" />Una sesión de diagnóstico, en tu oficina
@@ -1070,9 +1068,7 @@ function Footer() {
   return (
     <footer style={{ background: 'var(--tinta)', padding: '36px 48px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 20 }}>
-        <div style={{ background: 'rgba(255,255,255,0.08)', padding: '4px 10px', display: 'inline-flex', alignItems: 'center' }}>
-          <img src={LOGO_MAIN} alt="Prodigio IA" style={{ height: 24, width: 'auto' }} />
-        </div>
+        <img src={LOGO_MAIN} alt="Prodigio IA" style={{ height: 26, width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.8 }} />
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Monterrey, México</span>
           <a href="mailto:jrgutierrez@prodigioia.com" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', transition: 'color 0.15s' }}
