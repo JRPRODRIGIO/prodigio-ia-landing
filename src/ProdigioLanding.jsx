@@ -40,7 +40,7 @@ function FadeIn({ children, className = '', delay = 0 }) {
 /* ─── Global Styles ─── */
 const globalStyles = (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --azul: #004AAC;
@@ -60,13 +60,13 @@ const globalStyles = (
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
       color: var(--tinta); background: var(--hueso);
       line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
     h1, h2, h3, h4 {
-      font-family: 'Space Grotesk', 'Helvetica Neue', system-ui, sans-serif;
-      font-weight: 600; letter-spacing: -0.01em; line-height: 1.08;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400; letter-spacing: -0.01em; line-height: 1.08;
     }
 
     .eyebrow {
@@ -89,7 +89,7 @@ const globalStyles = (
 
     .btn-azul {
       background: var(--azul); color: white;
-      padding: 14px 32px; font-family: 'Space Grotesk', sans-serif;
+      padding: 14px 32px; font-family: 'Geist', sans-serif;
       font-weight: 600; font-size: 15px; letter-spacing: -0.01em;
       display: inline-flex; align-items: center; gap: 8px;
       border: none; cursor: pointer; text-decoration: none;
@@ -99,7 +99,7 @@ const globalStyles = (
 
     .btn-outline {
       background: transparent; color: var(--tinta);
-      padding: 14px 32px; font-family: 'Space Grotesk', sans-serif;
+      padding: 14px 32px; font-family: 'Geist', sans-serif;
       font-weight: 600; font-size: 15px; letter-spacing: -0.01em;
       display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid rgba(14,17,22,0.22); cursor: pointer; text-decoration: none;
@@ -113,7 +113,7 @@ const globalStyles = (
     .btn-outline-light:hover { border-color: var(--crema) !important; color: var(--crema) !important; }
 
     .nav-link {
-      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+      font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500;
       color: var(--pizarra); text-decoration: none; letter-spacing: 0.01em;
       transition: color 0.15s;
     }
@@ -239,7 +239,7 @@ function HeroVisual() {
           >
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: 'var(--cobre)', minWidth: 20, paddingTop: 1 }}>{s.num}</div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: s.highlight ? 700 : 500, fontSize: 15, color: s.highlight ? 'var(--azul)' : 'var(--tinta)', marginBottom: 3 }}>{s.name}</div>
+              <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: s.highlight ? 600 : 400, fontSize: 15, color: s.highlight ? 'var(--azul)' : 'var(--tinta)', marginBottom: 3 }}>{s.name}</div>
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--pizarra-clara)' }}>{s.detail}</div>
             </div>
             {s.highlight && <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--azul)', marginTop: 6, flexShrink: 0 }} />}
@@ -337,7 +337,7 @@ function Hero() {
               { num: '6–8 sem', label: 'DEL KICKOFF AL PROCESO VIVO' },
             ].map((s, i) => (
               <div key={i}>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 30, color: 'var(--crema)', letterSpacing: '-0.02em', marginBottom: 8 }}>{s.num}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 30, color: 'var(--crema)', letterSpacing: '-0.02em', marginBottom: 8 }}>{s.num}</div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(250,247,240,0.38)' }}>{s.label}</div>
               </div>
             ))}
@@ -452,7 +452,7 @@ function WhatWeDo() {
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.2em', color: 'var(--cobre)', marginBottom: 16 }}>{v.num}</div>
                 <div className="copper-rule" />
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: v.dark ? 'rgba(250,247,240,0.38)' : 'var(--pizarra-clara)', marginBottom: 14 }}>{v.verb}</div>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 22, color: v.dark ? 'var(--crema)' : 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>{v.name}</h3>
+                <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 22, color: v.dark ? 'var(--crema)' : 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>{v.name}</h3>
                 <p style={{ fontSize: 15, lineHeight: 1.65, color: v.dark ? 'rgba(250,247,240,0.6)' : 'var(--pizarra)' }}>{v.desc}</p>
               </div>
             </FadeIn>
@@ -500,7 +500,7 @@ function ProcessFamilies() {
                 borderBottom: '1px solid rgba(14,17,22,0.06)',
               }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.2em', color: 'var(--cobre)', marginBottom: 12 }}>{f.num}</div>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 17, color: 'var(--tinta)', letterSpacing: '-0.01em', marginBottom: 10 }}>{f.name}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 17, color: 'var(--tinta)', letterSpacing: '-0.01em', marginBottom: 10 }}>{f.name}</div>
                 <p style={{ fontSize: 14, color: 'var(--pizarra)', lineHeight: 1.6 }}>{f.desc}</p>
               </div>
             </FadeIn>
@@ -559,7 +559,7 @@ function Solutions() {
             <FadeIn key={i} delay={i * 0.09}>
               <div style={{ background: 'var(--blanco)', border: '1px solid rgba(14,17,22,0.08)', padding: '36px 32px' }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.2em', color: 'var(--cobre)', marginBottom: 12 }}>{s.num}</div>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 24, color: 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 16 }}>{s.name}</h3>
+                <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 24, color: 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 16 }}>{s.name}</h3>
                 <p style={{ fontSize: 15, color: 'var(--pizarra)', lineHeight: 1.65, marginBottom: 28 }}>{s.desc}</p>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 0, background: 'var(--hueso)', border: '1px solid var(--piedra)', padding: '9px 14px' }}>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--azul)' }}>{s.metric}</span>
@@ -608,7 +608,7 @@ function Methodology() {
               }}>
                 <div className="copper-rule" />
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.2em', color: 'var(--cobre)', marginBottom: 8 }}>{s.num}</div>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 16, color: s.dark ? 'var(--crema)' : 'var(--tinta)', marginBottom: 6, letterSpacing: '-0.01em' }}>{s.name}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 16, color: s.dark ? 'var(--crema)' : 'var(--tinta)', marginBottom: 6, letterSpacing: '-0.01em' }}>{s.name}</div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: s.dark ? 'rgba(250,247,240,0.38)' : 'var(--pizarra-clara)', marginBottom: 14 }}>{s.duration}</div>
                 <p style={{ fontSize: 13, lineHeight: 1.65, color: s.dark ? 'rgba(250,247,240,0.6)' : 'var(--pizarra)' }}>{s.desc}</p>
               </div>
@@ -644,7 +644,7 @@ function Results() {
           {metrics.map((m, i) => (
             <FadeIn key={i} delay={i * 0.08}>
               <div style={{ padding: '32px 28px', borderTop: '2px solid var(--cobre)' }}>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 'clamp(36px, 3.5vw, 54px)', color: 'var(--crema)', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: 10 }}>{m.num}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 'clamp(36px, 3.5vw, 54px)', color: 'var(--crema)', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: 10 }}>{m.num}</div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--cobre)', marginBottom: 10 }}>{m.unit}</div>
                 <div style={{ fontSize: 13, color: 'rgba(250,247,240,0.45)', lineHeight: 1.55 }}>{m.label}</div>
               </div>
@@ -707,7 +707,7 @@ function Services() {
               }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.2em', color: 'var(--cobre)', marginBottom: 8 }}>{m.letter}</div>
                 <div className="copper-rule" />
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 24, letterSpacing: '-0.02em', lineHeight: 1.1, color: m.dark ? 'var(--crema)' : 'var(--tinta)', marginBottom: 6 }}>{m.name}</h3>
+                <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 24, letterSpacing: '-0.02em', lineHeight: 1.1, color: m.dark ? 'var(--crema)' : 'var(--tinta)', marginBottom: 6 }}>{m.name}</h3>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: m.dark ? 'rgba(250,247,240,0.38)' : 'var(--pizarra-clara)', marginBottom: 20 }}>{m.duration}</div>
                 <p style={{ fontSize: 14, lineHeight: 1.65, marginBottom: 24, color: m.dark ? 'rgba(250,247,240,0.65)' : 'var(--pizarra)', flex: 1 }}>{m.desc}</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
@@ -833,10 +833,10 @@ function Testimonials() {
                   background: 'var(--hueso)', border: `1px solid ${t.accent}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 16, color: t.accent }}>{initials}</span>
+                  <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 16, color: t.accent }}>{initials}</span>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 16, color: 'var(--tinta)', marginBottom: 2 }}>{t.name}</div>
+                  <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 600, fontSize: 16, color: 'var(--tinta)', marginBottom: 2 }}>{t.name}</div>
                   <div style={{ fontSize: 13, color: 'var(--pizarra)', marginBottom: 8 }}>
                     {t.role} · <span style={{ fontWeight: 600 }}>{t.company}</span>
                   </div>
@@ -845,7 +845,7 @@ function Testimonials() {
                   </div>
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 28, color: 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1 }}>
+                  <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 28, color: 'var(--tinta)', letterSpacing: '-0.02em', lineHeight: 1 }}>
                     {t.score}<span style={{ fontSize: 14, fontWeight: 400, color: 'var(--pizarra-clara)' }}>/10</span>
                   </div>
                   <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--pizarra-clara)', marginTop: 4 }}>RECOMENDACIÓN</div>
@@ -919,7 +919,7 @@ function Testimonials() {
               { number: '6+', label: 'EMPRESAS CAPACITADAS' },
             ].map((s, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 28, color: 'var(--crema)', letterSpacing: '-0.02em' }}>{s.number}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 28, color: 'var(--crema)', letterSpacing: '-0.02em' }}>{s.number}</div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(250,247,240,0.38)', marginTop: 6 }}>{s.label}</div>
               </div>
             ))}
@@ -959,7 +959,7 @@ function Contact() {
   const inputStyle = {
     width: '100%', padding: '13px 16px',
     border: '1px solid rgba(14,17,22,0.15)', background: 'var(--blanco)',
-    fontSize: 15, fontFamily: "'Inter', sans-serif",
+    fontSize: 15, fontFamily: "'Geist', sans-serif",
     outline: 'none', color: 'var(--tinta)', transition: 'border-color 0.2s',
   };
   const labelStyle = {
@@ -1041,7 +1041,7 @@ function Contact() {
                 {['Sin costo', 'Respuesta en menos de 24 hrs', 'Sin compromiso'].map((text, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: 'var(--azul-claro)' }}>+</span>
-                    <span style={{ fontSize: 13, color: 'rgba(250,247,240,0.5)', fontFamily: "'Inter', sans-serif" }}>{text}</span>
+                    <span style={{ fontSize: 13, color: 'rgba(250,247,240,0.5)', fontFamily: "'Geist', sans-serif" }}>{text}</span>
                   </div>
                 ))}
               </div>
@@ -1051,7 +1051,7 @@ function Contact() {
               <div style={{ width: 56, height: 56, background: 'rgba(250,247,240,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 24, color: 'var(--crema)' }}>+</span>
               </div>
-              <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 28, color: 'var(--crema)', marginBottom: 12 }}>Mensaje recibido.</h3>
+              <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 700, fontSize: 28, color: 'var(--crema)', marginBottom: 12 }}>Mensaje recibido.</h3>
               <p style={{ fontSize: 17, color: 'rgba(250,247,240,0.6)', maxWidth: 480, margin: '0 auto', lineHeight: 1.65 }}>
                 Te contactamos en menos de 24 horas para agendar tu sesión de diagnóstico. Si tienes urgencia, escríbenos directo a <strong style={{ color: 'var(--crema)' }}>jrgutierrez@prodigioia.com</strong>
               </p>
@@ -1115,7 +1115,7 @@ function WhatsAppButton() {
         <path d="M16.002 3.2A12.798 12.798 0 0 0 3.6 19.536L2 30l10.736-1.568A12.8 12.8 0 1 0 16.002 3.2Zm0 23.36a10.544 10.544 0 0 1-5.376-1.472l-.384-.224-4 1.056 1.072-3.904-.256-.4A10.56 10.56 0 1 1 16.002 26.56Zm5.792-7.904c-.32-.16-1.872-.928-2.16-1.024-.288-.112-.496-.16-.704.16s-.816 1.024-.992 1.232c-.192.208-.368.224-.688.08a8.632 8.632 0 0 1-2.56-1.584 9.62 9.62 0 0 1-1.776-2.208c-.192-.32 0-.48.144-.64.128-.128.288-.336.432-.496.144-.176.192-.288.288-.496.096-.192.048-.368-.032-.512-.08-.16-.704-1.696-.96-2.32-.256-.608-.512-.528-.704-.528h-.592a1.152 1.152 0 0 0-.832.384 3.488 3.488 0 0 0-1.088 2.592 6.064 6.064 0 0 0 1.264 3.216 13.856 13.856 0 0 0 5.312 4.688c.736.32 1.312.512 1.76.656a4.24 4.24 0 0 0 1.952.128c.592-.096 1.872-.768 2.144-1.504.256-.752.256-1.392.176-1.52-.064-.144-.272-.224-.576-.384Z" />
       </svg>
       {hover && (
-        <span style={{ color: 'white', fontSize: 14, fontWeight: 600, fontFamily: "'Space Grotesk', sans-serif", whiteSpace: 'nowrap', letterSpacing: '-0.01em' }}>
+        <span style={{ color: 'white', fontSize: 14, fontWeight: 600, fontFamily: "'Geist', sans-serif", whiteSpace: 'nowrap', letterSpacing: '-0.01em' }}>
           Escríbenos
         </span>
       )}
